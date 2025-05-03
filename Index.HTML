@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIRAkLE - Innovación Tecnológica</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: linear-gradient(to bottom, #1a1a1a, #2a2a2a);
+            pointer-events: none;
+        }
+        body {
+            position: relative;
+            z-index: 1;
+        }
+        .container {
+            position: relative;
+            z-index: 2;
+        }
+        .TITTLE {
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+        .TITTLE:hover {
+            background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff00ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: rainbow 3s linear infinite;
+        }
+        .service-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff00ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: rainbow 3s linear infinite;
+        }
+        .service-card:hover .service-icon {
+            transform: scale(1.2);
+            background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff00ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: rainbow 3s linear infinite;
+        }
+        .hero-content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            position: relative;
+            margin-right: 100px;
+        }
+        .hero-text {
+            flex: 1;
+            padding-right: 50px;
+        }
+        .hero-image {
+            flex: 1;
+            text-align: right;
+            position: fixed;
+            height: 400px;
+            overflow:auto;
+        }
+        .hero h1 {
+            white-space: nowrap;
+            margin: 0;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            
+        }
+        .hola {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+            max-width: 100%;
+            height: auto;
+        }
+        .minimal-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        .line {
+            stroke: #ffffff;
+            stroke-width: 2;
+            fill: none;
+        }
+        .line-1 {
+            animation: moveLine1 23s linear infinite;
+        }
+        .line-2 {
+            animation: moveLine2 28s linear infinite;
+        }
+        .line-3 {
+            animation: moveLine3 12s linear infinite;
+        }
+        .line-4 {
+            animation: moveLine4 15s linear infinite;
+        }
+        .line-5 {
+            animation: moveLine5 8s linear infinite;
+        }
+        .line-6 {
+            animation: moveLine6 18s linear infinite;
+        }
+        @keyframes moveLine1 {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        @keyframes moveLine2 {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        @keyframes moveLine3 {
+            0% { transform: translate(-100%, -100%); }
+            100% { transform: translate(100%, 100%); }
+        }
+        @keyframes moveLine4 {
+            0% { transform: translate(100%, -100%); }
+            100% { transform: translate(-100%, 100%); }
+        }
+        @keyframes moveLine5 {
+            0% { transform: translateX(0) rotate(0deg); }
+            50% { transform: translateX(50%) rotate(180deg); }
+            100% { transform: translateX(0) rotate(360deg); }
+        }
+        @keyframes moveLine6 {
+            0% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(50%) scale(1.5); }
+            100% { transform: translateY(0) scale(1); }
+        }
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(20px, -20px) rotate(5deg); }
+            50% { transform: translate(0, -40px) rotate(0deg); }
+            75% { transform: translate(-20px, -20px) rotate(-5deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+        @keyframes rainbow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #8c8686;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #7700ff;
+            box-shadow: 0 0 20px rgba(55, 0, 255, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .contact-form input:hover,
+        .contact-form textarea:hover {
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .contact-form .btn {
+            background: linear-gradient(45deg, #b700ff, #000000);
+            border: none;
+            padding: 15px 30px;
+            color: #ffffff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+        }
+.btn{
+    background: linear-gradient(45deg, #b700ff, #000000);
+            border: none;
+            padding: 15px 30px;
+            color: #ffffff;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 42, 255, 0.2);
+}
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(34, 0, 255, 0.4);
+}
+        .contact-form .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
+        }
+        footer {
+            position: relative;
+            padding: 50px 0;
+            background: rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+        }
+        footer .container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        footer img.hola {
+            position: absolute;
+            top: 50%;
+            left: 75%;
+            transform: translate(-50%, -50%);
+            max-width: 200px;
+            opacity: 0.2;
+            z-index: 1;
+            animation: float 6s ease-in-out infinite;
+            align-items: center;
+        }
+        footer .footer-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 100%;
+        }
+        .skill-item {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            color: #5f5f5f;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            
+        }
+        .skill-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: skillColorChange 2s linear infinite;
+        }
+        .skill-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        .skill-item:hover::before {
+            left: 100%;
+        }
+        @keyframes skillColorChange {
+            0% { background: rgba(255, 0, 0, 0.2); }
+            25% { background: rgba(0, 255, 0, 0.2); }
+            50% { background: rgba(0, 0, 255, 0.2); }
+            75% { background: rgba(255, 0, 255, 0.2); }
+            100% { background: rgba(255, 0, 0, 0.2); }
+        
+        }
+     
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+              <h1 class="TITTLE">MIRAKLE</h1>
+                <ul class="nav-links">
+                    <li><a href="#about">Quiénes Somos</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <svg class="minimal-lines" viewBox="0 0 1000 500" preserveAspectRatio="none">
+                    <line class="line line-1" x1="0" y1="250" x2="1000" y2="250" />
+                    <line class="line line-2" x1="500" y1="0" x2="500" y2="500" />
+                    <line class="line line-3" x1="0" y1="0" x2="1000" y2="500" />
+                    <line class="line line-4" x1="1000" y1="0" x2="0" y2="500" />
+                    <line class="line line-5" x1="250" y1="250" x2="750" y2="250" />
+                    <line class="line line-6" x1="0" y1="125" x2="1000" y2="375" />
+                </svg>
+                <div class="hero-text">
+                    <h1>Multi-agentes potencializados con IA <span>personalizados</span></h1>
+                   <h2>#Go-Try MIRAKLE</h2>
+                    <p>Los trabajadores del presente y futuro estan aqui contrata uno y potenciliza tu negocio</p>
+                    <a href="precios.html" class="btn">PLANES</a>
+                </div>
+                <div class="hero-image">
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about" data-scroll="fadeIn">
+        <div class="container">
+            <h2 class="section-title">Quiénes Somos</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>MIRAKLE es una agencia enfocada en servicios de automatización de aplicaciones y programas enfocados para emprendedores con la visión de revolucionar la forma en que la que ellos interactúan con la inteligencia artificial.</p>
+                    <p>Creemos en el poder de la IA para transformar negocios y mejorar operaciones, por eso nos esforzamos por ofrecer soluciones personalizadas que generen un impacto real.</p>
+                    <div class="skills">
+                        <div class="skill-item">Desarrollo de infraestructura</div>
+                        <div class="skill-item">Inteligencia Artificial</div>
+                        <div class="skill-item">Protección de datos</div>
+                        <div class="skill-item">Agente personalizados</div>
+                        <div class="skill-item">Análisis de Datos</div>
+                        <div class="skill-item">Automatización</div>
+                        <div class="skill-item">manejo de inventario</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services" data-scroll="fadeIn">
+        <div class="container">
+            <h2 class="section-title">Hecho a la medida para ti</h2>
+            <div class="services-grid">
+                <div class="service-card" data-scroll="fadeIn">
+                    <div class="service-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>Restaurantes</h3>
+                    <p>Confirmacion automatica de reservas. Integraciones con WhatsApp / Telegram / sevicios de Google. Control automatico de inventarios con ajustes totalmente personalisables para cada nesecidad.</p>
+                </div>
+                <div class="service-card" data-scroll="fadeIn" data-scroll-delay="0.1">
+                    <div class="service-icon"><i class="fas fa-store"></i></div>
+                    <h3>Tiendas</h3>
+                    <p>Implementación de soluciones de IA y machine learning para automatizar procesos, analizar datos y mejorar la toma de decisiones.</p>
+                </div>
+                <div class="service-card" data-scroll="fadeIn" data-scroll-delay="0.2">
+                    <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <h3>E-Commerce</h3>
+                    <p>Protección integral de tus sistemas y datos con las más avanzadas soluciones de seguridad informática y protocolos de protección.</p>
+                </div>
+                <div class="service-card" data-scroll="fadeIn" data-scroll-delay="0.3">
+                    <div class="service-icon"><i class="fas fa-university"></i></div>
+                    <h3>Banca</h3>
+                    <p>Migración, implementación y gestión de infraestructuras en la nube para optimizar costos y mejorar la escalabilidad de tus sistemas.</p>
+                </div>
+                <div class="service-card" data-scroll="fadeIn" data-scroll-delay="0.4">
+                    <div class="service-icon"><i class="fas fa-building"></i></div>
+                    <h3>Empresas</h3>
+                    <p>Transformación de datos en insights valiosos mediante herramientas avanzadas de business intelligence y análisis predictivo.</p>
+                </div>
+                <div class="service-card" data-scroll="fadeIn" data-scroll-delay="0.5">
+                    <div class="service-icon"><i class="fas fa-user-tie"></i></div>
+                    <h3>Influencers</h3>
+                    <p>Acompañamiento integral en el proceso de digitalización de tu empresa, desde la estrategia hasta la implementación.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="particles/particles.min.js"></script>
+
+    <script src="script.js"></script>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact" data-scroll="fadeIn">
+        <div class="container">
+            <h2 class="section-title">Agenda una reunion</h2>
+            <div class="contact-content">
+                <div class="contact-info" data-scroll="fadeInLeft">
+                    <h3>Hablemos de ti.</h3>
+                    <p>Estamos listos para ayudarte a llevar tu negocio al siguiente nivel con soluciones tecnológicas innovadoras. Contáctanos para una consulta gratuita.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                          
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon"><i class="fas fa-phone"></i></span>
+                            <span>829-932-2641</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon"><i class="fas fa-envelope"></i></span>
+                            <span>gomirakle@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form" data-scroll="fadeInRight">
+                    <form id="telegramform">
+                        <input type="text" name="nombre" placeholder="Nombre" required>
+                        <input type="email" name="email" placeholder="Email" required>
+                        <input type="text" name="asunto" placeholder="Asunto">
+                        <textarea name="mensaje" placeholder="Tu mensaje" required></textarea>
+                        <button type="submit" class="btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <img src="true (1).png" alt="MIRAkLE Producto" class="hola">
+            <div class="footer-content">
+                <a href="#" class="logo">MIRAKLE</a>
+                <p>GO-TRY MIRAKLE</p>
+                <ul class="social-links">
+                    <li><a href="https://www.facebook.com/profile.php?id=61555165709204"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="https://www.instagram.com/gomirakle?igsh=M20xMTNjbmhkeTlu&utm_source=qr"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                </ul>
+                <p class="copyright">© 2025 MIRAkLE Technologies. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript para funcionalidades
+        document.addEventListener('DOMContentLoaded', function() {
+            // Manejar el plan seleccionado
+            const selectedPlan = localStorage.getItem('selectedPlan');
+            if (selectedPlan) {
+                const asuntoInput = document.querySelector('input[name="asunto"]');
+                if (asuntoInput) {
+                    asuntoInput.value = `Consulta sobre plan ${selectedPlan}`;
+                }
+                localStorage.removeItem('selectedPlan'); // Limpiar después de usar
+            }
+
+            // Smooth scrolling para los enlaces del menú
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Menú móvil
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenu.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+            
+            // Efecto de cambio de header al hacer scroll
+            const header = document.querySelector('header');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.style.backgroundColor = 'rgba(245, 245, 247, 0.95)';
+                    header.style.padding = '10px 0';
+                } else {
+                    header.style.backgroundColor = 'rgba(245, 245, 247, 0.8)';
+                    header.style.padding = '20px 0';
+                }
+            });
+            
+            // Scroll animations
+            const scrollElements = document.querySelectorAll('[data-scroll]');
+            
+            const elementInView = (el, dividend = 1) => {
+                const elementTop = el.getBoundingClientRect().top;
+                return (
+                    elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+                );
+            };
+            
+            const displayScrollElement = (element) => {
+                element.classList.add('is-visible');
+            };
+            
+            const handleScrollAnimation = () => {
+                scrollElements.forEach((el) => {
+                    if (elementInView(el, 1.25)) {
+                        displayScrollElement(el);
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', () => {
+                handleScrollAnimation();
+            });
+            
+            // Initialize
+            handleScrollAnimation();
+
+            const serviceCards = document.querySelectorAll('.service-card');
+            
+            serviceCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.classList.add('clicked');
+                    setTimeout(() => {
+                        this.classList.remove('clicked');
+                    }, 1000);
+                });
+            });
+        });
+
+        // Inicialización de particles.js
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '#ffffff'
+                },
+                shape: {
+                    type: 'circle'
+                },
+                opacity: {
+                    value: 0.5,
+                    random: true
+                },
+                size: {
+                    value: 3,
+                    random: true
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#ffffff',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: true,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'grab'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+    </script>
+</body>
+<script>
+    document.getElementById('telegramform').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const botToken = '8184292909:AAH8JJ1VO1oCg0dmkPYCgajySzNecAY8yQY';
+        const chatId = '5003447206';
+        
+        const formData = `Mensaje desde landing page:\n\nNombre: ${this.nombre.value}\nEmail: ${this.email.value}\nAsunto: ${this.asunto.value}\nMensaje: ${this.mensaje.value}`;
+        
+        try {
+            const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: formData,
+                    parse_mode: 'HTML'
+                })
+            });
+
+            if (response.ok) {
+                alert('Mensaje enviado correctamente');
+                this.reset();
+            } else {
+                throw new Error('Error en la respuesta');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error al enviar el mensaje. Por favor, intente nuevamente.');
+        }
+    });
+</script>
+</html>
