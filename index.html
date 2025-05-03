@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medidor de Uso de Máquina</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://apis.google.com/js/api.js" onload="gapiLoaded()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Medidor de Uso de Máquina</h1>
+            <img src="image.png" alt="logo" class="logo">
+        </div>
+        
+        <div class="current-time-container">
+            <div class="current-time">
+                <span class="hours">00</span>:
+                <span class="minutes">00</span>:
+                <span class="seconds">00</span>
+                <span class="ampm">AM</span>
+            </div>
+        </div>
+
+        <div class="auth-container">
+            <button id="authorize-button" class="auth-button">Iniciar Sesión con Google</button>
+            <button id="signout-button" class="auth-button" style="display: none;">Cerrar Sesión</button>
+        </div>
+
+        <div class="total-time-ribbon">
+            <div class="total-time-card">
+                <h3>Máquina 1</h3>
+                <div class="total-time">
+                    <span class="total-hours">00</span>:
+                    <span class="total-minutes">00</span>:
+                    <span class="total-seconds">00</span>.
+                    <span class="total-milliseconds">000</span>
+                </div>
+                <div class="cycle-counter">
+                    <span class="cycle-label">Ciclos:</span>
+                    <span class="cycle-count">0</span>
+                </div>
+            </div>
+            <div class="total-time-card">
+                <h3>Máquina 2</h3>
+                <div class="total-time">
+                    <span class="total-hours">00</span>:
+                    <span class="total-minutes">00</span>:
+                    <span class="total-seconds">00</span>.
+                    <span class="total-milliseconds">000</span>
+                </div>
+                <div class="cycle-counter">
+                    <span class="cycle-label">Ciclos:</span>
+                    <span class="cycle-count">0</span>
+                </div>
+            </div>
+            <div class="total-time-card">
+                <h3>Máquina 3</h3>
+                <div class="total-time">
+                    <span class="total-hours">00</span>:
+                    <span class="total-minutes">00</span>:
+                    <span class="total-seconds">00</span>.
+                    <span class="total-milliseconds">000</span>
+                </div>
+                <div class="cycle-counter">
+                    <span class="cycle-label">Ciclos:</span>
+                    <span class="cycle-count">0</span>
+                </div>
+            </div>
+            <div class="total-time-card">
+                <h3>Máquina 4</h3>
+                <div class="total-time">
+                    <span class="total-hours">00</span>:
+                    <span class="total-minutes">00</span>:
+                    <span class="total-seconds">00</span>.
+                    <span class="total-milliseconds">000</span>
+                </div>
+                <div class="cycle-counter">
+                    <span class="cycle-label">Ciclos:</span>
+                    <span class="cycle-count">0</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="machines-container">
+            <!-- Máquina 1 -->
+            <div class="machine-panel">
+                <div class="machine-header">
+                    <h2>Máquina 1</h2>
+                    <div class="neon-indicator"></div>
+                </div>
+                <div class="timer">
+                    <span class="hours">00</span>:
+                    <span class="minutes">00</span>:
+                    <span class="seconds">00</span>.
+                    <span class="milliseconds">000</span>
+                </div>
+                <div class="controls">
+                    <input type="text" class="operatorName" placeholder="Nombre del operador">
+                    <div class="buttons">
+                        <button class="startBtn">Iniciar</button>
+                        <button class="stopBtn">Detener</button>
+                        <button class="resetBtn">Resetear</button>
+                        <button class="saveBtn">Guardar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Máquina 2 -->
+            <div class="machine-panel">
+                <div class="machine-header">
+                    <h2>Máquina 2</h2>
+                    <div class="neon-indicator"></div>
+                </div>
+                <div class="timer">
+                    <span class="hours">00</span>:
+                    <span class="minutes">00</span>:
+                    <span class="seconds">00</span>.
+                    <span class="milliseconds">000</span>
+                </div>
+                <div class="controls">
+                    <input type="text" class="operatorName" placeholder="Nombre del operador">
+                    <div class="buttons">
+                        <button class="startBtn">Iniciar</button>
+                        <button class="stopBtn">Detener</button>
+                        <button class="resetBtn">Resetear</button>
+                        <button class="saveBtn">Guardar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Máquina 3 -->
+            <div class="machine-panel">
+                <div class="machine-header">
+                    <h2>Máquina 3</h2>
+                    <div class="neon-indicator"></div>
+                </div>
+                <div class="timer">
+                    <span class="hours">00</span>:
+                    <span class="minutes">00</span>:
+                    <span class="seconds">00</span>.
+                    <span class="milliseconds">000</span>
+                </div>
+                <div class="controls">
+                    <input type="text" class="operatorName" placeholder="Nombre del operador">
+                    <div class="buttons">
+                        <button class="startBtn">Iniciar</button>
+                        <button class="stopBtn">Detener</button>
+                        <button class="resetBtn">Resetear</button>
+                        <button class="saveBtn">Guardar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Máquina 4 -->
+            <div class="machine-panel">
+                <div class="machine-header">
+                    <h2>Máquina 4</h2>
+                    <div class="neon-indicator"></div>
+                </div>
+                <div class="timer">
+                    <span class="hours">00</span>:
+                    <span class="minutes">00</span>:
+                    <span class="seconds">00</span>.
+                    <span class="milliseconds">000</span>
+                </div>
+                <div class="controls">
+                    <input type="text" class="operatorName" placeholder="Nombre del operador">
+                    <div class="buttons">
+                        <button class="startBtn">Iniciar</button>
+                        <button class="stopBtn">Detener</button>
+                        <button class="resetBtn">Resetear</button>
+                        <button class="saveBtn">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="records-list">
+            <h2>Registros</h2>
+            <table id="recordsTable">
+                <thead>
+                    <tr>
+                        <th>Fecha y Hora</th>
+                        <th>Máquina</th>
+                        <th>Operador</th>
+                        <th>Tiempo de Uso</th>
+                    </tr>
+                </thead>
+                <tbody id="recordsBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

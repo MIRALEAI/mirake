@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIRAkLE - Precios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a1a, #000000);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .pricing-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg,  #9000ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: rainbow 3s linear infinite;
+        }
+
+        .pricing-header p {
+            font-size: 1.2rem;
+            color: #8c8686;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgb(7, 7, 7);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: #9000ff;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .price {
+            font-size: 3rem;
+            margin: 20px 0;
+            color: #ffffff;
+        }
+
+        .price span {
+            font-size: 1.5rem;
+            color: #8c8686;
+        }
+
+        .features {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .features li {
+            margin: 15px 0;
+            color: #8c8686;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .features li i {
+            color: #ffffff;
+            margin-right: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #9000ff, #9000ff);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+            text-shadow: 0 0 5px #fff,
+                         0 0 10px #fff,
+                         0 0 20px #9000ff,
+                         0 0 30px #9000ff,
+                         0 0 40px #9000ff;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 5px #9000ff,
+                       0 0 10px #9000ff,
+                       0 0 20px #9000ff,
+                       0 0 40px #9000ff;
+            animation: neonPulse 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes neonPulse {
+            from {
+                box-shadow: 0 0 5px #9000ff,
+                           0 0 10px #9000ff,
+                           0 0 20px #9000ff,
+                           0 0 40px #9000ff;
+            }
+            to {
+                box-shadow: 0 0 10px #9000ff,
+                           0 0 20px #9000ff,
+                           0 0 30px #9000ff,
+                           0 0 50px #9000ff;
+            }
+        }
+
+        .popular {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #9000ff;
+            color: #000000;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        @keyframes rainbow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 12px 25px;
+            background: linear-gradient(45deg, #000000, #8400ff);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgb(136, 0, 255);
+        }
+
+        .back-button i {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <a href="INDE.HTML" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        Volver
+    </a>
+    <div class="container">
+        <div class="pricing-header">
+            <h1>Nuestros Planes</h1>
+            <p>Elige el plan que mejor se adapte a tus necesidades y comienza tu transformación digital con MIRAkLE</p>
+        </div>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>BASICS</h3>
+                <div class="price">$10<span>/mes</span></div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> 1 agente autonomo</li>
+                    <li><i class="fas fa-check"></i> Soporte 24/7</li>
+                    <li><i class="fas fa-check"></i>1 integracion con apps de mensajeria</li>
+                    <li><i class="fas fa-check"></i>Personalizacion enfocada en tu negocio</li>
+                </ul>
+                <a href="INDE.HTML#contact" class="btn">Comenzar</a>
+            </div>
+
+            <div class="pricing-card">
+                <div class="popular">Más Popular</div>
+                <h3>PRO</h3>
+                <div class="price">$21<span>/mes</span></div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> 3 Agentes autonomos</li>
+                    <li><i class="fas fa-check"></i> Soporte prioritario</li>
+                    <li><i class="fas fa-check"></i> 3 integraciones con apps de mensajeria</li>
+                    <li><i class="fas fa-check"></i> Personalizacion enfocada en tu negocio</li>
+                    <li><i class="fas fa-check"></i> Agente de voz personalizado</li>
+                    <li><i class="fas fa-check"></i> Análisis de datos</li>
+                </ul>
+                <a href="INDE.HTML#contact" class="btn">Comenzar</a>
+            </div>
+
+            <div class="pricing-card">
+                <h3>CORP.</h3>
+                <div class="price">$DECIDES TU<span>/mes</span></div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> 3-20 agentes autonomos</li>
+                    <li><i class="fas fa-check"></i> Soporte 24/7</li>
+                    <li><i class="fas fa-check"></i> Integraciones ilimitadas</li>
+                    <li><i class="fas fa-check"></i> Reportes en tiempo real</li>
+                    <li><i class="fas fa-check"></i> IA personalizada</li>
+                    <li><i class="fas fa-check"></i> Consultoría dedicada</li>
+                    <li><i class="fas fa-check"></i> Agente de voz personalizado</li>
+                    <li><i class="fas fa-check"></i> Manejo de inventario</li>
+                </ul>
+                <a href="INDE.HTML#contact" class="btn">Comenzar</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Función simple para redirigir a la página principal
+        function redirectToContact(e) {
+            e.preventDefault(); // Prevenir el comportamiento por defecto
+            window.location.href = 'INDE.HTML#contact'; // Redirigir a la página principal
+        }
+
+        // Agregar el evento click a todos los botones
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', redirectToContact);
+            });
+        });
+
+        // Asegurar que el botón de atrás esté siempre visible
+        window.addEventListener('scroll', function() {
+            const backButton = document.querySelector('.back-button');
+            if (window.scrollY > 100) {
+                backButton.style.top = '20px';
+            } else {
+                backButton.style.top = '20px';
+            }
+        });
+    </script>
+</body>
+</html> 
